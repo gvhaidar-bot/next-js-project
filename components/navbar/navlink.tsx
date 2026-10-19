@@ -9,60 +9,59 @@ const NavLink = () => {
 
   return (
     <>
-      <button onClick={() => setOpen((prev) => !prev)} className="inline-flex items-center p-2 justify-center text-sm text-gray-600 rounded-md md:hidden  hover:bg-gray-100">
-        {!open ? <IoMenu className="size-8" /> : <IoClose className="size-8" />}
+      <button onClick={() => setOpen((prev) => !prev)} className="hover:bg-gray-700 rounded-full  p-2 text-sm items-center transition-colors justify-center inline-flex text-gray-600 md:hidden">
+        {!open ? <IoMenu className="size-10" /> : <IoClose className="w-10" />}
       </button>
 
       <div
-        className={clsx("w-full  md:block  md:w-auto", {
+        className={clsx("w-full md:block md:w-auto", {
           hidden: !open,
         })}
       >
-        <ul className="flex flex-col font-semibold  text-sm uppercase p-4 mt-4 rounded-sm bg-gray-50  md:flex-row md:items-center md:space-x-10  md:p-0  md:mt-0 md:border-0  md:bg-white">
-          <li className="">
-            <Link href="/" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
-              home
+        <ul className="flex flex-col p-4 bg-gray-50 text-sm uppercase mt-4 space-y-3 md:flex-row md:justify-between space-x-2 md:p-0 md:text-base md:bg-white md:mt-0">
+          <li>
+            <Link className="block hover:text-gray-500  rounded-full py-2 px-3" href="/">
+              Home
             </Link>
           </li>
-
-          <li className="">
-            <Link href="/about" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
+          <li>
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3 " href="/about">
               about
             </Link>
           </li>
-
-          <li className="">
-            <Link href="/rooms" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
+          <li>
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3 " href="/rooms">
+              {" "}
               Rooms
             </Link>
           </li>
-
-          <li className="">
-            <Link href="/contact" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
+          <li>
+            <Link href="/contact" className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  ">
+              {" "}
               contact
             </Link>
           </li>
-
-          <li className="">
-            <Link href="/myreservation" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
+          <li>
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/">
+              {" "}
               my reservation
             </Link>
           </li>
 
-          <li className="">
-            <Link href="/admin/dashboard" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
-              dasboard
+          <li>
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/admin/dashboard">
+              dashboard
             </Link>
           </li>
 
-          <li className="">
-            <Link href="/admin/room" className="block py-2  px-3 text-gray-800 hover:bg-gray-100 rounded-sm  md:hover:bg-transparent  md:p-0">
+          <li>
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/admin/manage">
               manage room
             </Link>
           </li>
 
-          <li className="pt-2 md:pt-0">
-            <Link href="/signin" className="py-2.5 px-6 bg-orange-400  text-white hover:bg-orange-600 rounded-sm">
+          <li>
+            <Link className="bg-blue-500 ml-5 py-2 px-5 text-white block  rounded-full  text-center  hover:bg-blue-950 text-[18px] md:text-base" href="/signin">
               Sign In
             </Link>
           </li>

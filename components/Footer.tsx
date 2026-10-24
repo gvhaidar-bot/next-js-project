@@ -1,65 +1,64 @@
 import Image from "next/image";
-import Link from "next/link";
+import { BsYoutube } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdMap } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-dark">
-      <div className="max-w-[1200px] mx-auto px-5 w-full py-12 md:py-16">
+    <footer className="bg-primary-dark text-gray-50">
+      <div className="py-10 px-6  md:py-16 w-full">
         <div className="grid md:grid-cols-3 gap-10">
-          <div>
-            <Link href="/" className="block">
-              <Image src="/logo.jpg" alt="logo" width={48} height={48} className="h-12 w-12 object-contain"></Image>
-            </Link>
-            <p className="mt-6 text-base leading-[1.7] text-on-dark/80">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam facilis, nisi velit culpa fuga dolorum a voluptatem voluptate. Odit esse ullam natus repudiandae cupiditate maxime vitae fuga nostrum accusamus reprehenderit?
-            </p>
+          <div className="bg-center mx-auto">
+            <Image src="/logo.jpg" alt="logo" width={120} height={80} />
           </div>
 
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-accent-soft">Links</h4>
-            <div className="mt-3 h-1 w-8 rounded-full bg-accent"></div>
-            <ul className="mt-6 space-y-3 text-base text-on-dark/70">
-              <li>
-                <Link href="#" className="block py-1 transition hover:text-on-dark">
-                  Legal
-                </Link>
-              </li>
+          <div className="space-y-8">
+            <h3 className="font-bold leading-tight text-xl">Customer Center</h3>
 
-              <li>
-                <Link href="#" className="block py-1 transition hover:text-on-dark">
-                  Term & Conditions
-                </Link>
-              </li>
-
-              <li>
-                <Link href="#" className="block py-1 transition hover:text-on-dark">
-                  Privacy & Policy
-                </Link>
-              </li>
-
-              <li>
-                <Link href="#" className="block py-1 transition hover:text-on-dark">
-                  Payment Methods
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-accent-soft">News Letters</h4>
-            <div className="mt-3 h-1 w-8 rounded-full bg-accent"></div>
-            <p className="mt-6 text-base leading-[1.7] text-on-dark/80">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <form action="">
-              <div className="mt-6">
-                <input className="bg-white w-full min-h-[44px] px-5 py-3 rounded-full text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-accent" type="email" placeholder="JaneDoe@email.com" />
+            <div className="">
+              <div className="max-w-xl mb-4 flex  gap-3">
+                <MdMap className="w-7 h-7" />
+                <p className="text-sm tracking-wider">Thamrin Plaza. Jl. M.H. Thamrin Kav. 8-9 Lt. PH. Kebon Melati, Tanah Abang, Jakarta Pusat</p>
               </div>
-            </form>
-            <button className="bg-primary-accent transition-colors cursor-pointer w-full min-h-[44px] text-white mt-4 px-5 py-3 rounded-full font-semibold hover:bg-primary active:scale-[0.99]">Subricbe</button>
+
+              <div className="max-w-xl flex  gap-3 items-center">
+                <FaWhatsapp className="w-7 h-7" />
+                <p className="text-sm leading-tight font-bold">0812-1111-8456</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-xl ">
+            <h3 className="text-sm mb-4 font-bold text-xl">Consumer Complaints Service Contact Information</h3>
+            <div className="flex gap-4  mt-4">
+              <MdMap />
+              <div>
+                <p className="text-sm mb-2 tracking-wider">
+                  Thamrin Plaza. Jl. M.H. Thamrin Kav. 8-9 Lt. PH. Kebon Melati, Tanah Abang, Jakarta Pusat. <br />
+                </p>
+                <span className="text-sm italic font-semibold">WhatsApp Ditjen PKTN: 0853-1111-1010</span>
+              </div>
+            </div>
+            <p></p>
+          </div>
+        </div>
+
+        <div className="mt-8 justify-between w-full text-center md:text-left md:flex space-y-8 ">
+          <p className="text-sm font-bold leading-tight tracking-wider px-40">All rights reserved ● Terms and Conditions ● Privacy Policy</p>
+
+          <div className="mx-auto flex gap-2 justify-center items-center">
+            <div className="bg-gray-600 p-3 rounded-full cursor-pointer hover:scale-105 hover:bg-gray-900 transition-colors">
+              <BsYoutube className="w-5 h-5" />
+            </div>
+            <div className="bg-gray-600 p-3 rounded-full cursor-pointer hover:scale-105 hover:bg-gray-900 transition-colors">
+              <BsYoutube className="w-5 h-5" />
+            </div>
+            <div className="bg-gray-600 p-3 rounded-full cursor-pointer hover:scale-105 hover:bg-gray-900 transition-colors flex items-center justify-center">
+              <BsYoutube className="w-5 h-5 text-center" />
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="px-5 py-6 w-full max-w-[1200px] mx-auto border-t border-t-white/20 text-center text-sm text-on-dark/70">&copy; | copyRIght | Haidargv27 | All Right Recerved</div>
     </footer>
   );
 };

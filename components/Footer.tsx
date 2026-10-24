@@ -5,7 +5,7 @@ import { MdMap } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-dark text-gray-50">
+    <footer className="bg-green-400 text-gray-50">
       <div className="py-10 px-6  md:py-16 w-full">
         <div className="grid md:grid-cols-3 gap-10">
           <div className="bg-center mx-auto">

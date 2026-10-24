@@ -1,59 +1,88 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-dark">
-      <div className="max-w-[1200px] mx-auto px-5 w-full py-8 md:py-16">
-        <div className="grid md:grid-cols-3 gap-7">
-          <div>
-            <Link href="/" className="block mb-10">
-              <Image src="/logo.jpg" alt="logo" width={80} height={50}></Image>
-            </Link>
-            <p className="text-on-dark/80">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam facilis, nisi velit culpa fuga dolorum a voluptatem voluptate. Odit esse ullam natus repudiandae cupiditate maxime vitae fuga nostrum accusamus reprehenderit?
-            </p>
-          </div>
+    <footer className="border-t border-t-white/20 bg-primary-dark text-on-dark">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-5 py-16 md:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <Link href="/#beranda" className="text-xl font-bold">
+            [Nama Restoran]
+          </Link>
+          <p className="mt-4 text-base leading-[1.7] text-on-dark/80">[Alamat Restoran]</p>
+        </div>
 
-          <div>
-            <div className="flex gap-20">
-              <div className="flex-1  md:flex-none">
-                <h4 className="text-on-dark font-bold text-xl mb-10 ">Links</h4>
-                <ul className="space-y-4  list-item text-on-dark/70">
-                  <li>
-                    <Link href="#">Legal</Link>
-                  </li>
+        <div>
+          <h3 className="text-xl font-bold">Menu</h3>
+          <ul className="mt-4 space-y-3 text-base">
+            <li>
+              <Link href="/#beranda" className="text-on-dark/80 transition hover:text-on-dark">
+                Beranda
+              </Link>
+            </li>
+            <li>
+              <Link href="/#menu" className="text-on-dark/80 transition hover:text-on-dark">
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link href="/#tentang" className="text-on-dark/80 transition hover:text-on-dark">
+                Tentang
+              </Link>
+            </li>
+            <li>
+              <Link href="/#galeri" className="text-on-dark/80 transition hover:text-on-dark">
+                Galeri
+              </Link>
+            </li>
+            <li>
+              <Link href="/#testimoni" className="text-on-dark/80 transition hover:text-on-dark">
+                Testimoni
+              </Link>
+            </li>
+            <li>
+              <Link href="/#kontak" className="text-on-dark/80 transition hover:text-on-dark">
+                Kontak
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-                  <li>
-                    <Link href="#">Term & Conditions</Link>
-                  </li>
+        <div>
+          <h3 className="text-xl font-bold">Menu Unggulan</h3>
+          <ul className="mt-4 space-y-3 text-base">
+            <li>
+              <Link href="/#menu" className="text-on-dark/80 transition hover:text-on-dark">
+                [Nama Menu 1]
+              </Link>
+            </li>
+            <li>
+              <Link href="/#menu" className="text-on-dark/80 transition hover:text-on-dark">
+                [Nama Menu 2]
+              </Link>
+            </li>
+            <li>
+              <Link href="/#menu" className="text-on-dark/80 transition hover:text-on-dark">
+                [Nama Menu 3]
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-                  <li>
-                    <Link href="#">Privacy & Policy</Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">Payment Methods</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="mb-4 font-bold text-on-dark text-xl ">News Letters</h4>
-            <p className="text-on-dark/80 mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <form action="">
-              <div className="mb-5">
-                <input className="bg-white w-full p-3 rounded-md text-ink" type="email" placeholder="JaneDoe@email.com" />
-              </div>
-            </form>
-            <button className="bg-primary-accent transition-colors  cursor-pointer w-full  text-white p-3 rounded-full font-semibold hover:bg-primary">Subricbe</button>
-          </div>
+        <div>
+          <h3 className="text-xl font-bold">Kontak</h3>
+          <ul className="mt-4 space-y-3 text-base text-on-dark/80">
+            <li>Telepon: [Nomor Telepon]</li>
+            <li>WhatsApp: [Nomor WhatsApp]</li>
+            <li>Email: [Email Restoran]</li>
+            <li>Jam buka: [Jam Buka]</li>
+          </ul>
+          <Link href="/#lokasi" className="mt-6 inline-flex min-h-[44px] items-center rounded-full bg-primary-accent px-7 py-3 font-semibold text-white transition hover:bg-primary">
+            Lihat Lokasi di Google Maps
+          </Link>
         </div>
       </div>
 
-      <div className="px-5 py-8 w-full max-w-[1200px] mx-auto border-t border-t-white/20 text-center text-on-dark  ">&copy; | copyRIght | Haidargv27 | All Right Recerved</div>
+      <div className="mx-auto max-w-[1200px] border-t border-t-white/20 px-5 py-8 text-center text-on-dark">&copy; [Nama Restoran]</div>
     </footer>
   );
 };

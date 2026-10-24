@@ -164,9 +164,9 @@ export default function Home() {
             <div className="rounded-[12px] bg-white p-6 shadow-[0_4px_24px_rgba(0,98,65,0.08)]">
               <h3 className="text-xl font-bold">Jam Buka</h3>
               <p className="mt-2 text-base leading-[1.7] text-muted">[Jam Buka per hari — isi sesuai jam asli restoran.]</p>
-              <Link href="https://maps.google.com/?q=[Alamat Restoran]" className="mt-6 inline-flex min-h-[44px] items-center rounded-full bg-primary-accent px-7 py-3 font-semibold text-white transition hover:bg-primary">
+              <a href="https://maps.google.com/?q=[Alamat Restoran]" target="_blank" rel="noreferrer" className="mt-6 inline-flex min-h-[44px] items-center rounded-full bg-primary-accent px-7 py-3 font-semibold text-white transition hover:bg-primary">
                 Lihat Lokasi di Google Maps
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -177,9 +177,9 @@ export default function Home() {
           <h2 className="text-[2rem] font-bold leading-[1.25] tracking-[-0.01em]">Sudah Lapar? Pesan Tempatmu Sekarang.</h2>
           <p className="mx-auto mt-4 max-w-xl text-lg leading-[1.7] text-on-dark/80">Hubungi [Nama Restoran] untuk reservasi. Konfirmasi reservasi bergantung pada balasan restoran.</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="https://wa.me/[Nomor WhatsApp]" className="flex min-h-[44px] items-center rounded-full bg-primary-accent px-7 py-3.5 font-semibold text-white transition hover:bg-primary">
+            <a href="https://wa.me/[Nomor WhatsApp]" target="_blank" rel="noreferrer" className="flex min-h-[44px] items-center rounded-full bg-primary-accent px-7 py-3.5 font-semibold text-white transition hover:bg-primary">
               Reservasi via WhatsApp
-            </Link>
+            </a>
             <Link href="#lokasi" className="flex min-h-[44px] items-center rounded-full bg-white px-7 py-3.5 font-semibold text-primary transition hover:bg-warm">
               Lihat Lokasi di Google Maps
             </Link>

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/Footer";
-const raleWay = Raleway({
-  variable: "--font-raleway",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
 });
 
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${raleWay.variable}  h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className={`${plusJakartaSans.variable}  h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans bg-cream text-ink">
         <Navbar />
-        <main className="bg-gray-50 min-h-screen">{children}</main>
+        <main className="bg-cream min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

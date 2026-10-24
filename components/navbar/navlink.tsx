@@ -9,8 +9,8 @@ const NavLink = () => {
 
   return (
     <>
-      <button onClick={() => setOpen((prev) => !prev)} className="hover:bg-primary-soft rounded-full p-2 text-sm items-center transition-colors justify-center inline-flex text-primary md:hidden">
-        {!open ? <IoMenu className="size-10" /> : <IoClose className="size-10" />}
+      <button onClick={() => setOpen((prev) => !prev)} className="hover:bg-gray-700 rounded-full  p-2 text-sm items-center transition-colors justify-center inline-flex text-gray-600 md:hidden">
+        {!open ? <IoMenu className="size-10" /> : <IoClose className="w-10" />}
       </button>
 
       <div
@@ -18,50 +18,50 @@ const NavLink = () => {
           hidden: !open,
         })}
       >
-        <ul className="flex flex-col rounded-[12px] bg-white p-2 text-base shadow-[0_8px_32px_rgba(0,98,65,0.14)] mt-2 space-y-1 md:flex-row md:items-center md:justify-between md:gap-1 md:p-0 md:bg-transparent md:shadow-none md:mt-0 md:space-y-0">
+        <ul className="flex flex-col p-4 bg-gray-50 text-sm uppercase mt-4 space-y-3 md:flex-row md:justify-between space-x-2 md:p-0 md:text-base md:bg-white md:mt-0">
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/">
+            <Link className="block hover:text-gray-500  rounded-full py-2 px-3" href="/">
               Home
             </Link>
           </li>
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/about">
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3 " href="/about">
               about
             </Link>
           </li>
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/rooms">
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3 " href="/rooms">
               {" "}
               Rooms
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex">
+            <Link href="/contact" className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  ">
               {" "}
               contact
             </Link>
           </li>
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/">
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/">
               {" "}
               my reservation
             </Link>
           </li>
 
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/admin/dashboard">
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/admin/dashboard">
               dashboard
             </Link>
           </li>
 
           <li>
-            <Link className="block min-h-[44px] items-center rounded-full py-2 px-4 font-medium text-ink transition hover:text-primary hover:bg-primary-soft md:flex" href="/admin/manage">
+            <Link className="block hover:text-gray-500 hover:bg-gray-900 rounded-full py-2 px-3  " href="/admin/manage">
               manage room
             </Link>
           </li>
 
           <li>
-            <Link className="bg-primary-accent ml-0 mt-2 py-2.5 px-5 text-white flex min-h-[44px] items-center justify-center rounded-full text-center font-semibold hover:bg-primary transition md:ml-4 md:mt-0" href="/signin">
+            <Link className="bg-blue-500 ml-5 py-2 px-5 text-white block  rounded-full  text-center  hover:bg-blue-950 text-[18px] md:text-base" href="/signin">
               Sign In
             </Link>
           </li>

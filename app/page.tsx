@@ -11,7 +11,6 @@ export default function Home() {
           <h1 className="text-4xl font-bold  uppercase">Room & Rates</h1>
           <p className="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-
         <Main />
       </div>
     </div>

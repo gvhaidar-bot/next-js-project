@@ -1,7 +1,12 @@
 import HeaderSection from "@/components/header-section";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { IoEyeOutline, IoLocateOutline } from "react-icons/io5";
 
+export const metadata: Metadata = {
+  title: "about",
+  description: "who we are",
+};
 const AboutPage = () => {
   return (
     <div>

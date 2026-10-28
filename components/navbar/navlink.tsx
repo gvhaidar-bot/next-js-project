@@ -18,7 +18,7 @@ const NavLink = () => {
           hidden: !open,
         })}
       >
-        <ul className="flex flex-col p-4 bg-gray-50 text-sm uppercase mt-4 space-y-3 md:flex-row md:justify-between space-x-2 md:p-0 md:text-base md:bg-white md:mt-0">
+        <ul className="flex text-blue-700 flex-col p-4 bg-gray-50 text-sm uppercase mt-4 space-y-3 md:flex-row md:justify-between space-x-2 md:p-0 md:text-base md:bg-white md:mt-0">
           <li>
             <Link className="block hover:text-gray-500  rounded-full py-2 px-3" href="/">
               Home

@@ -1,7 +1,7 @@
 "use client";
-import { signOut } from "@/auth";
 import clsx from "clsx";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
@@ -11,6 +11,20 @@ const NavLink = () => {
   const { data: session } = useSession();
   return (
     <>
+      {session?.user ? (
+        <div className="flex items-center  justify-end md:order-2">
+          <div className=" hidden text-sm bg-gray-50 border rounded-full md:me-0 md:block focus:ring-4  focus:ring-gray-400">
+            <Image src={session.user.image || "/logo.jpg"} width={64} height={64} alt="avatar" className="rounded-full size-8" />
+          </div>
+
+          <div className="flex items-center">
+            <button onClick={() => signOut()} className="md:block hidden py-2 px-4  bg-gray-50  text-gray-700  hover:bg-gray-100 rounded sm">
+              Sign Out
+            </button>
+          </div>
+        </div>
+      ) : null}
+
       <button onClick={() => setOpen((prev) => !prev)} className="inline-flex items-center p-2 justify-center text-sm text-gray-600 rounded-md md:hidden  hover:bg-gray-100">
         {!open ? <IoMenu className="size-8" /> : <IoClose className="size-8" />}
       </button>

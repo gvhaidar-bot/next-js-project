@@ -1,0 +1,116 @@
+FITUR REGISTER DIY - Prisma + Next.js + bcryptjs
+================================================
+Branch : uji-coba
+Repo   : gvhaidar-bot/next-js-project
+
+RINGKASAN
+---------
+Fitur autentikasi yang dibuat sendiri dari nol, TANPA library
+auth jadi (Auth.js tidak dipakai di branch ini). Yang sudah jadi:
+- Register: form pendaftaran. Password diubah jadi hash bcrypt
+  sebelum disimpan ke PostgreSQL lewat Prisma.
+- Login: menyusul (rencana: verifikasi bcrypt.compare + session JWT).
+
+YANG DIBUTUHKAN
+---------------
+1. Node.js 20.19 ke atas (cek: node -v)
+2. PostgreSQL yang sedang berjalan di laptop
+3. Package npm:
+   - prisma@7             (dev - CLI: init, migrate, generate)
+   - @prisma/client@7     (client untuk query)
+   - @prisma/adapter-pg@7 + pg   (wajib di Prisma 7: penghubung
+     Prisma Client ke PostgreSQL, karena mesin Rust dihapus)
+   - dotenv               (baca .env di prisma7.config.ts)
+   - bcryptjs             (hash password)
+   - @types/pg, @types/bcryptjs  (dev - tipe TypeScript)
+
+CARA JALANKAN DARI NOL
+----------------------
+1. npm install
+2. Buat database:  CREATE DATABASE restaurant;
+3. Isi file .env (jangan di-commit ke git!):
+   DATABASE_URL="postgresql://postgres:PASSWORD@localhost:5432/restaurant?schema=public"
+4. npx prisma@7 generate
+5. npx prisma@7 migrate dev
+6. npm run dev  ->  buka http://localhost:3000/register
+
+PENJELASAN FILE
+---------------
+
+1. prisma/schema.prisma
+   - datasource db { provider = "postgresql" }
+     (tanpa url di sini; url dipindah ke prisma7.config.ts.
+     Ini cara Prisma 7, beda dengan Prisma 6.)
+   - generator client { provider = "prisma-client",
+     output = "../app/generated/prisma" }
+     (provider baru Prisma 7 + lokasi custom hasil generate.)
+   - model User:
+       id       -> String, @id, @default(cuid())
+                   cuid = ID string acak yang unik & tidak bisa
+                   ditebak (lebih aman dari angka 1,2,3).
+       email    -> String, @unique (tidak boleh kembar).
+       password -> String, menyimpan HASH bcrypt,
+                   BUKAN password asli.
+       name     -> String, opsional.
+
+2. prisma7.config.ts
+   - Konfigurasi untuk CLI Prisma: lokasi schema.prisma,
+     folder migrasi (prisma/migrations), dan URL database
+     yang dipakai saat migrate (diambil dari .env).
+   - Nama file prisma7.config.ts adalah bawaan hasil
+     `prisma init` di Prisma 7.10; dibaca otomatis.
+
+3. lib/prisma.ts
+   - Membuat SATU instance PrismaClient untuk seluruh aplikasi
+     (pola singleton via globalThis).
+   - Tujuannya: hot-reload Next.js tidak membuat koneksi baru
+     tiap reload (mencegah error "too many connections").
+   - Prisma 7 wajib pakai driver adapter:
+     pg.Pool -> PrismaPg -> new PrismaClient({ adapter }).
+   - Semua file lain pakai database lewat:
+       import { prisma } from "@/lib/prisma";
+
+4. app/register/page.tsx
+   - Form pendaftaran (Server Component, Tailwind).
+   - PENTING: setiap <input> wajib punya atribut name
+     (id hanya untuk label). Server Action membaca data
+     lewat formData.get("name") berdasarkan atribut name.
+
+5. app/register/action.ts
+   - Server Action "register" ("use server" = jalan di server,
+     bukan di browser).
+   - Alur: ambil name/email/password dari formData ->
+     bcrypt.hash(password, 10) -> prisma.user.create dengan
+     password: hashed -> redirect("/signin").
+   - Angka 10 = cost factor bcrypt (standar).
+
+ALUR REGISTER LENGKAP
+---------------------
+1. User isi form di /register, klik Daftar.
+2. Form dikirim ke Server Action di server.
+3. Password diubah jadi hash bcrypt (tidak bisa dibalikkan).
+4. User baru disimpan ke tabel "User" di PostgreSQL.
+5. Browser di-redirect ke /signin.
+
+CARA VERIFIKASI
+--------------
+  SELECT * FROM "User";
+  (pakai tanda kutip karena "User" huruf besar dan user adalah
+  kata kunci khusus PostgreSQL.)
+  -> kolom password harus berisi hash acak diawali $2b$10$,
+     bukan teks password aslinya.
+
+CATATAN KEAMANAN
+----------------
+- Password tidak pernah disimpan mentah di database.
+- File .env (berisi password database) tidak boleh di-commit.
+- Kode prisma & bcrypt hanya jalan di server, tidak dikirim
+  ke browser (kalau bocor ke client akan error "Can't resolve 'dns'").
+
+YANG BELUM DIBUAT
+-----------------
+- Halaman & action login (bcrypt.compare untuk verifikasi password)
+- Session: rencana JWT via library jose, disimpan di cookie httpOnly
+- Proteksi halaman (middleware / proxy.ts)
+- Commit & push ke branch uji-coba (cek git status dulu,
+  pastikan .env tidak ikut)
